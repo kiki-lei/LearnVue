@@ -1,28 +1,63 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <el-container>
+      <el-aside width="200px">Aside</el-aside>
+      <el-container>
+        <el-header>
+          <img alt="Vue logo" src="./assets/logo.png" height="100%">
+        </el-header>
+        <el-main>
+          <CardCarousel/>
+          <HelloWorld msg="Welcome to Your Vue.js App"/>
+          <Home home1="home1 success"/>
+        </el-main>
+        <el-footer>Footer</el-footer>
+      </el-container>
+    </el-container>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from "./components/HelloWorld.vue";
+import Home from "./components/Home";
+import CardCarousel from "./components/CardCarousel";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    HelloWorld
+    HelloWorld,
+    Home,
+    CardCarousel
   }
-}
+};
 </script>
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+}
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  color: #333;
+}
+
+.el-header,
+.el-footer {
+  background-color: #b3c0d1;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  line-height: 60px;
+}
+
+.el-aside {
+  background-color: #d3dce6;
+  text-align: center;
+  line-height: 200px;
+}
+
+.el-main {
+  background-color: #e9eef3;
+  color: #333;
+  text-align: center;
 }
 </style>
