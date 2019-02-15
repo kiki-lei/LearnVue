@@ -1,6 +1,6 @@
 <template>
   <div id="Footer">
-    <p>this is home page</p>
+    <p>this is Footer page</p>
   </div>
 </template>
 

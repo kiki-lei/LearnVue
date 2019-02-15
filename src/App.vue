@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <el-container>
-      <el-aside width="200px">Aside</el-aside>
+      <el-aside width="200px"><LeftBar/></el-aside>
       <el-container>
         <el-header>
           <img alt="Vue logo" src="./assets/logo.png" height="100%">
@@ -11,7 +11,7 @@
           <HelloWorld msg="Welcome to Your Vue.js App"/>
           <Home home1="home1 success"/>
         </el-main>
-        <el-footer>Footer</el-footer>
+        <el-footer><Footer/></el-footer>
       </el-container>
     </el-container>
   </div>
@@ -21,13 +21,17 @@
 import HelloWorld from "./components/HelloWorld.vue";
 import Home from "./components/Home";
 import CardCarousel from "./components/CardCarousel";
+import Footer from "./components/Footer";
+import LeftBar from "./components/LeftBar";
 
 export default {
   name: "app",
   components: {
     HelloWorld,
     Home,
-    CardCarousel
+    CardCarousel,
+    Footer,
+    LeftBar
   }
 };
 </script>
