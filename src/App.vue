@@ -1,36 +1,42 @@
 <template>
   <div id="app">
     <el-container>
-      <el-aside width="200px"><LeftBar/></el-aside>
+      <el-aside width="201px">
+        <LeftBar/>
+      </el-aside>
       <el-container>
         <el-header>
-          <img alt="Vue logo" src="./assets/logo.png" height="100%">
+          <Header/>
         </el-header>
         <el-main>
+          <Breadcrumb url="https://www.baidu.com" name="测试面包屑" name2="测试面包屑2"/>
           <CardCarousel/>
-          <HelloWorld msg="Welcome to Your Vue.js App"/>
           <Home home1="home1 success"/>
         </el-main>
-        <el-footer><Footer/></el-footer>
+        <el-footer>
+          <Footer/>
+        </el-footer>
       </el-container>
     </el-container>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
 import Home from "./components/Home";
 import CardCarousel from "./components/CardCarousel";
 import Footer from "./components/Footer";
 import LeftBar from "./components/LeftBar";
+import Header from "./components/Header";
+import Breadcrumb from "./components/Breadcrumb";
 
 export default {
   name: "app",
   components: {
-    HelloWorld,
     Home,
     CardCarousel,
     Footer,
+    Header,
+    Breadcrumb,
     LeftBar
   }
 };
@@ -49,19 +55,15 @@ export default {
 .el-header,
 .el-footer {
   background-color: #b3c0d1;
-  text-align: center;
   line-height: 60px;
 }
 
 .el-aside {
-  background-color: #d3dce6;
-  text-align: center;
-  line-height: 200px;
+  margin-bottom: -99999999px;
 }
 
 .el-main {
   background-color: #e9eef3;
   color: #333;
-  text-align: center;
 }
 </style>
