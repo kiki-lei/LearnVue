@@ -1,16 +1,18 @@
 <template>
   <div id="Home">
-    <form v-on:submit.prevent="addTodo">
-      <el-input placeholder="Add something..." v-model="todoThing" style="width: 200px;"></el-input>
-      <el-button type="primary" @click="addTodo">添加</el-button>
-    </form>
+    <div id="todoList">
+      <form v-on:submit.prevent="addTodo">
+        <el-input placeholder="Add something..." v-model.trim="todoThing" style="width: 200px;"></el-input>
+        <el-button type="primary" @click="addTodo">添加</el-button>
+      </form>
 
-    <ul>
-      <li v-for="(todo, index) in todos" :key="todo.id">
-        {{todo.id}}. {{ parentMessage }} - {{ index }} - {{todo.text}}
-        <el-button type="text" icon="el-icon-delete" circle v-on:click="todos.splice(index, 1)"></el-button>
-      </li>
-    </ul>
+      <ul>
+        <li v-for="(todo, index) in todos" :key="todo.id">
+          {{todo.id}}. {{ parentMessage }} - {{ index }} - {{todo.text}}
+          <el-button type="text" icon="el-icon-delete" circle v-on:click="todos.splice(index, 1)"></el-button>
+        </li>
+      </ul>
+    </div>
 
     <br>
     <br>
@@ -40,6 +42,78 @@
     <div v-else-if="type === 'B'">B</div>
     <div v-else-if="type === 'C'">C</div>
     <div v-else>Not A/B/C</div>
+
+    <br>
+    <br>
+
+    <form id="formDemo">
+      <h3>formDemo</h3>
+      <input type="checkbox" id="checkbox" v-model="checked">
+      <label for="checkbox">{{ checked }}</label>
+
+      <br>
+      <br>
+
+      <div id="example-3">
+        <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+        <label for="jack">Jack</label>
+        <input type="checkbox" id="john" value="John" v-model="checkedNames">
+        <label for="john">John</label>
+        <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+        <label for="mike">Mike</label>
+        <br>
+        <span>Checked names: {{ checkedNames }}</span>
+      </div>
+
+      <br>
+      <br>
+
+      <div id="example-4">
+        <input type="radio" id="one" value="One" v-model="picked">
+        <label for="one">One</label>
+        <br>
+        <input type="radio" id="two" value="Two" v-model="picked">
+        <label for="two">Two</label>
+        <br>
+        <span>Picked: {{ picked }}</span>
+      </div>
+
+      <br>
+      <br>
+
+      <div id="example-5">
+        <input type="checkbox" id="one1" value="One" v-model="picked1">
+        <label for="one1">One</label>
+        <br>
+        <input type="checkbox" id="two1" value="Two" v-model="picked1">
+        <label for="two1">Two</label>
+        <br>
+        <span>Picked1: {{ picked1 }}</span>
+      </div>
+
+      <br>
+      <br>
+
+      <div id="example-6">
+        <select v-model="select1">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+        <p>Choosed: {{ select1 }}</p>
+      </div>
+
+      <br>
+      <br>
+
+      <div id="example-7">
+        <select v-model="select2">
+          <option v-for="(option, text, value) in options" :value="option.value" :key="option.id">{{ option.text }}</option>
+        </select>
+        <p>Choosed: {{ select2 }}</p>
+      </div>
+    </form>
   </div>
 </template>
 
@@ -54,6 +128,29 @@ export default {
   },
   data() {
     return {
+      select2: "A",
+      options: [
+        {
+          id: 1,
+          value: "A",
+          text: "你好"
+        },
+        {
+          id: 2,
+          value: "B",
+          text: "你好2"
+        },
+        {
+          id: 3,
+          value: "C",
+          text: "你好3"
+        }
+      ],
+      select1: "",
+      picked1: [],
+      picked: "",
+      checkedNames: [],
+      checked: false,
       name: "null",
       title: "这个是title",
       nicai: true,
