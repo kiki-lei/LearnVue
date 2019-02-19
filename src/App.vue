@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <el-container>
-      <el-aside width="201px">
+      <!-- <el-aside width="201px">
+      </el-aside> -->
         <LeftBar/>
-      </el-aside>
       <el-container>
         <el-header>
           <Header/>
@@ -12,8 +12,10 @@
           <Breadcrumb url="https://www.baidu.com" name="测试面包屑" name2="测试面包屑2"/>
           <CardCarousel/>
           <Home home1="home1 success"/>
+          <router-view></router-view>
         </el-main>
         <el-footer>
+          <Footer/>
           <Footer/>
         </el-footer>
       </el-container>

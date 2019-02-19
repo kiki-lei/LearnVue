@@ -15,6 +15,7 @@
     </div>
 
     <br>
+    <router-link to="/blank">测试路由</router-link>
     <br>
 
     <p>this is home page, {{ home1 }}</p>
@@ -113,6 +114,7 @@
         </select>
         <p>Choosed: {{ select2 }}</p>
       </div>
+
     </form>
   </div>
 </template>
