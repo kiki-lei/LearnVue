@@ -1,12 +1,11 @@
 <template>
   <div id="app">
     <el-container>
-      <!-- <el-aside width="201px">
-      </el-aside> -->
-        <LeftBar/>
+      <LeftBar :isCollapse="isCollapseState"/>
       <el-container>
         <el-header>
-          <Header/>
+          <Header @changeLeftbar="getLeftbarState"/>
+          <p>{{isCollapseState}}123</p>
         </el-header>
         <el-main>
           <Breadcrumb url="https://www.baidu.com" name="测试面包屑" name2="测试面包屑2"/>
@@ -40,6 +39,16 @@ export default {
     Header,
     Breadcrumb,
     LeftBar
+  },
+  data() {
+    return {
+      isCollapseState: false
+    };
+  },
+  methods: {
+    getLeftbarState: function(getState) {
+      this.isCollapseState = getState;
+    }
   }
 };
 </script>

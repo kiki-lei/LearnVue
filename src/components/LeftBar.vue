@@ -6,12 +6,8 @@
       @open="handleOpen"
       @close="handleClose"
       :collapse="isCollapse"
-    > -->
-    <h3 id="changeBtn" @click="change" :class="{ active: isCollapse }">切换侧边栏显示</h3>
-    <el-menu
-      class="el-menu-vertical-demo"
-      :collapse="isCollapse"
-    >
+    >-->
+    <el-menu class="el-menu-vertical-demo" :collapse="isCollapse">
       <el-submenu index="1">
         <template slot="title">
           <i class="el-icon-location"></i>
@@ -49,19 +45,17 @@
 <script>
 export default {
   name: "LeftBar",
+  props: {
+    isCollapse: Boolean
+  },
   data() {
     return {
-      isCollapse: false
+      // isCollapse: ''
     };
   },
   methods: {
-    handleOpen(key, keyPath) {
-    },
-    handleClose(key, keyPath) {
-    },
-    change: function () {
-      this.isCollapse = !this.isCollapse
-    }
+    handleOpen(key, keyPath) {},
+    handleClose(key, keyPath) {}
   }
 };
 </script>
@@ -69,16 +63,5 @@ export default {
 <style scoped>
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: 200px;
-}
-
-#changeBtn {
-  position: absolute;
-  bottom: 0;
-  left: 201px;
-  z-index: 1;
-}
-
-#changeBtn.active {
-  left: 65px;
 }
 </style>

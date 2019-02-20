@@ -1,16 +1,12 @@
 <template>
   <div id="Header">
+    <h3 id="changeBtn" @click="change" :class="{ active: isCollapse }">隐藏/显示</h3>
+
     <img alt="Vue logo" src="../assets/logo.png" height="30" style="vertical-align: middle;">
 
     <div style="float: right;">
       <el-button type="primary" icon="el-icon-message" circle></el-button>&nbsp;&nbsp;
-
-      <el-dropdown
-        size="medium"
-        split-button
-        @click="loginOut"
-        @command="handleCommand"
-      >退出
+      <el-dropdown size="medium" split-button @click="loginOut" @command="handleCommand">退出
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item command="a">基本信息</el-dropdown-item>
           <el-dropdown-item command="b">切换用户</el-dropdown-item>
@@ -28,7 +24,8 @@ export default {
   data() {
     return {
       activeIndex: "1",
-      activeIndex2: "1"
+      activeIndex2: "1",
+      isCollapse: ''
     };
   },
   methods: {
@@ -40,6 +37,11 @@ export default {
     },
     handleCommand(command) {
       this.$message("click on item " + command);
+    },
+    change: function() {
+      this.isCollapse = !this.isCollapse;
+
+      this.$emit('changeLeftbar', this.isCollapse)
     }
   }
 };
