@@ -1,8 +1,13 @@
 <template>
   <div id="Header">
-    <h3 id="changeBtn" @click="change" :class="{ active: isCollapse }">隐藏/显示</h3>
-
-    <img alt="Vue logo" src="../assets/logo.png" height="30" style="vertical-align: middle;">
+    <i class="fa fa-bars" @click="change" :class="{ active: isCollapse }"></i>
+    &nbsp;
+    <img
+      alt="Vue logo"
+      src="../assets/logo.png"
+      height="30"
+      style="vertical-align: middle;"
+    >
 
     <div style="float: right;">
       <el-button type="primary" icon="el-icon-message" circle></el-button>&nbsp;&nbsp;
@@ -25,15 +30,15 @@ export default {
     return {
       activeIndex: "1",
       activeIndex2: "1",
-      isCollapse: ''
+      isCollapse: ""
     };
   },
   methods: {
-    handleSelect(key, keyPath) {
-      console.log(key, keyPath);
-    },
+    // handleSelect(key, keyPath) {
+    //   console.log(key, keyPath);
+    // },
     loginOut: function() {
-      alert("退出登录");
+      this.$router.push('/')
     },
     handleCommand(command) {
       this.$message("click on item " + command);
@@ -41,11 +46,17 @@ export default {
     change: function() {
       this.isCollapse = !this.isCollapse;
 
-      this.$emit('changeLeftbar', this.isCollapse)
+      this.$emit("changeLeftbar", this.isCollapse);
     }
   }
 };
 </script>
 
-<style scoped>
+<style lang="less" scoped>
+.fa-bars {
+  color: #bba0db;
+  &:hover {
+    cursor: pointer;
+  }
+}
 </style>

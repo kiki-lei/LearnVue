@@ -7,7 +7,12 @@ export default new VueRouter(
   {
     mode: 'history',
     routes: [
-      { path: '/blank', component: () => import('@/page/blank') }
+      { path: '/', component: () => import('@/page/login') },
+      {
+        path: '/index', component: () => import('@/page/home')
+      },
+      { path: '/blank', component: () => import('@/page/blank') },
+      // { path: '*', component: () => import('@/page/404') },
     ]
   }
 )
