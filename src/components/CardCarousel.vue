@@ -1,6 +1,6 @@
 <template>
   <div id="CardCarousel">
-    <el-carousel :interval="4000" type="card" height="200px" indicator-position="none">
+    <el-carousel :interval="4000" type="card" height="320px" indicator-position="none">
       <el-carousel-item v-for="(item, url, id, name) in picLists" :key="item.id">
         <img :src="item.url" height="100%" :alt="item.name">
         <!-- <h3>{{ item }}</h3> -->
@@ -17,7 +17,7 @@ export default {
       picLists: [
         {
           id: 1,
-          url: "../assets/images/1.jpg",
+          url: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1550666510382&di=bd98a28c01ee998f98f8c1cefc6fb861&imgtype=0&src=http%3A%2F%2Fimg1.ph.126.net%2FDBeLXn1tHXbhSMN0gDQNdg%3D%3D%2F6631297563631732624.jpg",
           name: "图1"
         },
         {
